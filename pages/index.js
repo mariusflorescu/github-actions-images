@@ -1,8 +1,22 @@
+import { styled } from "../stitches.config";
+import LinkPreview from "../components/LinkPreview";
 
-export default function Home() {
+const StyledSpan = styled("span", {
+  fontSize: "$5",
+  fontWeight: "$medium",
+});
+
+const Home = () => {
   return (
     <div>
-     Hello
+      <LinkPreview
+        link="https://github.com/mariusflorescu"
+        imageURL="/screenshots/twitter/dark.webp"
+      >
+        <StyledSpan>Hover over!</StyledSpan>
+      </LinkPreview>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
