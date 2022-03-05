@@ -1,11 +1,7 @@
 import { useTheme } from "next-themes";
 import { styled } from "../stitches.config";
+import Button from "../components/Button";
 import LinkPreview from "../components/LinkPreview";
-
-const StyledSpan = styled("span", {
-  fontSize: "$5",
-  fontWeight: "$medium",
-});
 
 const Home = () => {
   const { theme, setTheme } = useTheme();
@@ -25,19 +21,48 @@ const Home = () => {
     setTheme(() => decidedTheme);
     persistLocalStorageTheme(decidedTheme);
   };
+  /*
+   *
+   */
 
   return (
-    <div>
-      <button onClick={() => handleThemeChange()}>Click</button>
-      Theme is {theme}
-      <LinkPreview
-        link="https://github.com/mariusflorescu"
-        imageURL={`/screenshots/twitter/${theme}.webp`}
-      >
-        <StyledSpan>Hover over</StyledSpan>
-      </LinkPreview>
-    </div>
+    <Wrapper>
+      <FlexCenter>
+        <LinkPreview
+          link="https://github.com/mariusflorescu"
+          imageURL={`/screenshots/twitter/${theme}.webp`}
+        >
+          <StyledSpan>Hover over</StyledSpan>
+        </LinkPreview>
+      </FlexCenter>
+      <FlexCenter>
+        <Button onClick={() => handleThemeChange()}>
+          Click to change theme
+        </Button>
+        <span>Current theme is {theme}</span>
+      </FlexCenter>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "$6",
+});
+
+const FlexCenter = styled("div", {
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "$2",
+});
+
+const StyledSpan = styled("span", {
+  textAlign: "center",
+  fontSize: "$6",
+  fontWeight: "$medium",
+});
 
 export default Home;

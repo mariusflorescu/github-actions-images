@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { styled } from "../../stitches.config";
 import {
   HoverCardRoot,
   HoverCardTrigger,
