@@ -15,8 +15,8 @@ export const {
       black: "hsl(0, 0%, 0%)",
       white: "hsl(0, 0%, 100%)",
 
-      background: "hsl(0, 0%, 6%)",
-      text: "hsl(0, 0%, 94%)",
+      background: "hsl(0, 0%, 94%)",
+      text: "hsl(0, 0%, 6%)",
 
       indigo: "hsl(245, 58%, 51%)",
     },
@@ -171,5 +171,18 @@ export const {
     bp2: "(min-width: 750px)",
     bp3: "(min-width: 1000px)",
     bp4: "(min-width: 1200px)",
+  },
+});
+
+export const darkTheme = createTheme({
+  colors: {
+    transparent: "transparent",
+    black: "hsl(0, 0%, 0%)",
+    white: "hsl(0, 0%, 100%)",
+
+    background: "hsl(0, 0%, 6%)",
+    text: "hsl(0, 0%, 94%)",
+
+    indigo: "hsl(245, 58%, 51%)",
   },
 });
