@@ -1,5 +1,5 @@
 import HoverCardPrimitive from "@radix-ui/react-hover-card";
-import { styled, keyframes } from "stitches.config";
+import { styled, keyframes } from "../../stitches.config";
 
 const slideUp = keyframes({
   "0%": { transform: "scaleY(0)" },
