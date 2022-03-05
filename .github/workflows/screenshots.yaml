@@ -1,0 +1,25 @@
+name: Generate screenshots
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: 16
+      - name: yarn install
+        run: yarn
+      - name: make screenshots
+        run: yarn run screenshots
+      - name: push to repository
+        run: |
+          git config --global user.name 'Marius Florescu'
+          git config --global user.email 'mariusflorescu@users.noreply.github.com'
+          git pull origin main
+          git commit -am "Automated screenshots"
+          git push
