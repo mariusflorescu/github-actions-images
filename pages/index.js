@@ -4,26 +4,7 @@ import Button from "../components/Button";
 import LinkPreview from "../components/LinkPreview";
 
 const Home = () => {
-  const { theme, setTheme } = useTheme();
-
-  /*
-   * IMPORTANT !
-   * The following 2 functions are due to the fact that
-   * next-themes has some sort of bug and sets the theme wrongly in localStorage
-   */
-  const persistLocalStorageTheme = (decidedTheme) => {
-    localStorage.setItem("theme", decidedTheme);
-  };
-
-  const handleThemeChange = () => {
-    const decidedTheme = theme === "light" ? "dark" : "light";
-
-    setTheme(() => decidedTheme);
-    persistLocalStorageTheme(decidedTheme);
-  };
-  /*
-   *
-   */
+  const { resolvedTheme: theme, setTheme } = useTheme();
 
   return (
     <Wrapper>
@@ -36,7 +17,11 @@ const Home = () => {
         </LinkPreview>
       </FlexCenter>
       <FlexCenter>
-        <Button onClick={() => handleThemeChange()}>
+        <Button
+          onClick={() =>
+            setTheme((prev) => (prev === "light" ? "dark" : "light"))
+          }
+        >
           Click to change theme
         </Button>
         <span>Current theme is {theme}</span>
