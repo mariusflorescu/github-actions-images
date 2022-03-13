@@ -10,7 +10,7 @@ const Home = () => {
     <Wrapper>
       <FlexCenter>
         <LinkPreview
-          link="https://github.com/mariusflorescu"
+          link="https://twitter.com/_mariusflorescu"
           imageURL={`/screenshots/twitter/${theme}.webp`}
         >
           <StyledSpan>Hover over</StyledSpan>
